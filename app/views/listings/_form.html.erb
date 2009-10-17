@@ -2,17 +2,19 @@
 
 <p>
   <%= f.label :supplier_id %><br />
-  <%= f.text_field :supplier_id %>
+  <%= f.collection_select :supplier_id, Supplier.all, :id, :name %>
 </p>
 <p>
   <%= f.label :wine_id %><br />
-  <%= f.text_field :wine_id %>
+  <%= f.collection_select :wine_id, Wine.all, :id, :display_name %>
 </p>
 <p>
   <%= f.label :supplier_side_wine_id %><br />
   <%= f.text_field :supplier_side_wine_id %>
+  <br />The Supplier's product-id for this wine
 </p>
 <p>
   <%= f.label :notes %><br />
   <%= f.text_area :notes %>
+  <br />eg Price, or anyother notes about this wine
 </p>
