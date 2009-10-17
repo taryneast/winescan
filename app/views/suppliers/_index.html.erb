@@ -1,0 +1,29 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Store url</th>
+    <th>Affiliate code</th>
+    <th>Type</th>
+    <%= content_tag :th, 'Actions' if @show_actions -%>
+  </tr>
+
+<% suppliers.each do |supplier| %>
+  <tr>
+    <td><%=h supplier.name %></td>
+    <td><%=h supplier.email %></td>
+    <td><%=h supplier.phone %></td>
+    <td><%=h supplier.address %></td>
+    <td><%=h supplier.store_url %></td>
+    <td><%=h supplier.affiliate_code %></td>
+    <td><%=h supplier.supplier_type %></td>
+    <% if @show_actions -%>
+    <td><%= link_to 'Show', supplier %> |
+    <%= link_to 'Edit', edit_supplier_path(supplier) %> |
+    <%= link_to 'Destroy', supplier, :confirm => 'Are you sure?', :method => :delete %></td>
+  <% end -%>
+  </tr>
+<% end %>
+</table>

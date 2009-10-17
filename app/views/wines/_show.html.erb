@@ -39,4 +39,11 @@
   <pre><%=h wine.tasting_notes %></pre>
 </p>
 <% end -%>
+
+
+<% if wine.suppliers.present? -%>
+  <h3>Purchaseable through these suppliers</h3>
+  <%= render :partial => 'suppliers/index', :locals => {:suppliers => wine.suppliers}  -%>
+<% end -%>
+
 </fieldset>

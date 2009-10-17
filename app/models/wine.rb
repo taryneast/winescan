@@ -1,4 +1,6 @@
 class Wine < ActiveRecord::Base
+  has_many :listings
+  has_many :suppliers, :through => :listings
 
 
   # used as a short descriptor eg on the listing page for choosing which
