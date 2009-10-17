@@ -1,20 +1,20 @@
 <p>
   <b>Name:</b>
-  <%=h @wine.name %>
+  <%=h @wine.name %> <%=h @wine.producer %>
 </p>
 
 <p>
-  <b>Region:</b>
-  <%=h @wine.region %>
+  <b>Country/Region/Appellation:</b>
+  <%=h [@wine.country, @wine.region, @wine.appellation].compact.join(', ') %>
 </p>
 
 <p>
-  <b>Year:</b>
-  <%=h @wine.year %>
+  <b>Vintage year:</b>
+  <%=h @wine.vintage %>
 </p>
 
 <p>
-  <b>Variety:</b>
+  <b>Grape Variety:</b>
   <%=h @wine.variety %>
 </p>
 
@@ -25,7 +25,11 @@
 
 <p>
   <b>Description:</b>
-  <%=h @wine.description %>
+  <pre><%=h @wine.description %></pre>
+</p>
+<p>
+  <b>Tasting Notes:</b>
+  <pre><%=h @wine.tasting_notes %></pre>
 </p>
 
 

@@ -1,32 +1,7 @@
 <h1>Editing wine</h1>
 
 <% form_for(@wine) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :region %><br />
-    <%= f.text_field :region %>
-  </p>
-  <p>
-    <%= f.label :year %><br />
-    <%= f.text_field :year %>
-  </p>
-  <p>
-    <%= f.label :variety %><br />
-    <%= f.text_field :variety %>
-  </p>
-  <p>
-    <%= f.label :wine_type %><br />
-    <%= f.text_field :wine_type %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
+  <%= render :partial => 'form', :locals => {:f => f} %>
   <p>
     <%= f.submit 'Update' %>
   </p>

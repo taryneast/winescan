@@ -3,21 +3,19 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Region</th>
-    <th>Year</th>
+    <th>Country/Region</th>
+    <th>Vintage</th>
     <th>Variety</th>
     <th>Wine type</th>
-    <th>Description</th>
   </tr>
 
 <% @wines.each do |wine| %>
   <tr>
     <td><%=h wine.name %></td>
-    <td><%=h wine.region %></td>
-    <td><%=h wine.year %></td>
+    <td><%=h wine.country %>/<%=h wine.region %></td>
+    <td><%=h wine.vintage %></td>
     <td><%=h wine.variety %></td>
     <td><%=h wine.wine_type %></td>
-    <td><%=h wine.description %></td>
     <td><%= link_to 'Show', wine %></td>
     <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
     <td><%= link_to 'Destroy', wine, :confirm => 'Are you sure?', :method => :delete %></td>
