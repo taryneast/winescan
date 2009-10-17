@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  supplier_id: 1
+  wine_id: 1
+  supplier_side_wine_id: MyString
+  notes: MyText
+
+two:
+  supplier_id: 1
+  wine_id: 1
+  supplier_side_wine_id: MyString
+  notes: MyText
