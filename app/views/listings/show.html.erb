@@ -1,0 +1,23 @@
+<p>
+  <b>Supplier:</b>
+  <%=h @listing.supplier_id %>
+</p>
+
+<p>
+  <b>Wine:</b>
+  <%=h @listing.wine_id %>
+</p>
+
+<p>
+  <b>Supplier side wine:</b>
+  <%=h @listing.supplier_side_wine_id %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%=h @listing.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Back', listings_path %>

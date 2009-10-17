@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091017131624) do
+ActiveRecord::Schema.define(:version => 20091017145905) do
+
+  create_table "listings", :force => true do |t|
+    t.integer  "supplier_id"
+    t.integer  "wine_id"
+    t.string   "supplier_side_wine_id"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "suppliers", :force => true do |t|
     t.string   "name"
