@@ -4,14 +4,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Wines: <%= controller.action_name %></title>
+  <title>WineScan: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
 
+  <p>Header goes here with logo</p>
+
+  <p>Navigation: <%= link_to_unless_current 'wines', wines_path -%> | <%= link_to_unless_current 'suppliers', suppliers_path -%></p>
+
+<% if flash.present? -%>
 <p style="color: green"><%= flash[:notice] %></p>
+<p style="color: red"><%= flash[:error] %></p>
+<% end -%>
 
 <%= yield %>
 
+  <p>Footer goes here with helpful links, copyright etc</p>
 </body>
 </html>
