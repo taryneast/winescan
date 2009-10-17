@@ -3,7 +3,7 @@
 <% form_for(find_wines_path) do |f| %>
   <p>
     <%= label :barcode, "The barcode number for your wine" %><br />
-    <%= text_field_tag :barcode %>
+    <%= text_field_tag :barcode, @barcode %>
   </p>
   <%= f.submit 'Go find it!' %>
 <% end -%>

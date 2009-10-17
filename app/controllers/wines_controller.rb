@@ -9,7 +9,8 @@ class WinesController < ApplicationController
     if find_params.present?
       # start with just the barcode search!
       if find_params.has_key?(:barcode)
-        @wines = Wine.all(:conditions => ["barcode LIKE ?", '%'+params[:barcode]+'%'])
+        @barcode = params[:barcode]
+        @wines = Wine.all(:conditions => ["barcode LIKE ?", '%'+@barcode+'%'])
       end
     end
     # we've found a unique match!
