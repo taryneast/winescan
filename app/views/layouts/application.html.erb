@@ -11,7 +11,7 @@
 
   <p>Header goes here with logo</p>
 
-  <p>Navigation: <%= link_to_unless_current 'wines', wines_path -%> | <%= link_to_unless_current 'suppliers', suppliers_path -%></p>
+  <p>Navigation: <%= link_to_unless_current 'Find by Barcode!', find_wines_path -%> | <%= link_to_unless_current 'wines', wines_path -%> | <%= link_to_unless_current 'suppliers', suppliers_path -%> | <%= link_to_unless_current 'listings', listings_path -%></p>
 
 <% if flash.present? -%>
 <p style="color: green"><%= flash[:notice] %></p>
