@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091017145905) do
+ActiveRecord::Schema.define(:version => 20091017182729) do
 
   create_table "listings", :force => true do |t|
     t.integer  "supplier_id"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20091017145905) do
     t.boolean  "sparkling"
     t.string   "bottle_size"
     t.text     "tasting_notes"
+    t.string   "barcode"
   end
 
 end
