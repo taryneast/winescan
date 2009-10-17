@@ -1,0 +1,22 @@
+<h1>Find your wine by barcode</h1>
+
+<% form_for(find_wines_path) do |f| %>
+  <p>
+    <%= label :barcode, "The barcode number for your wine" %><br />
+    <%= text_field_tag :barcode %>
+  </p>
+  <%= f.submit 'Go find it!' %>
+<% end -%>
+
+
+<% # if we managed to match it perfectly
+   if @wine.present? -%>
+  <h2>Here is the wine you were drinking!</h2>
+  <%= render :partial => 'show', :locals => {:wine => @wine} %>
+<% # if we found a whole bunch - user should pick one
+   elsif @wines.present? -%>
+   <h2>Several wines matched your search - which one is yours?</h2>
+  <%= render :partial => 'index', :locals => {:wines => @wines} %>
+<% else -%>
+  <h2>No wines matched your search criteria. Please try again.</h2>
+<% end -%>

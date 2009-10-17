@@ -1,13 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :listings
 
-  map.resources :listings
-
   map.resources :suppliers
 
   map.resource :session
 
-  map.resources :wines
+  map.resources :wines, :collection => {:find => :any}
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -41,7 +39,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
+  map.root :controller => "wines", :action => 'find'
 
   # See how all your routes lay out with "rake routes"
 

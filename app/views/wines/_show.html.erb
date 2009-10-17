@@ -1,0 +1,37 @@
+<p>
+  <b>Barcode:</b>
+  <%=h wine.barcode %>
+</p>
+<p>
+  <b>Name:</b>
+  <%=h wine.display_name %>
+</p>
+
+<p>
+  <b>Country/Region/Appellation:</b>
+  <%=h [wine.country, wine.region, wine.appellation].compact.join(', ') %>
+</p>
+
+<p>
+  <b>Vintage year:</b>
+  <%=h wine.vintage %>
+</p>
+
+<p>
+  <b>Grape Variety:</b>
+  <%=h wine.variety %>
+</p>
+
+<p>
+  <b>Wine type:</b>
+  <%=h wine.wine_type %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <pre><%=h wine.description %></pre>
+</p>
+<p>
+  <b>Tasting Notes:</b>
+  <pre><%=h wine.tasting_notes %></pre>
+</p>

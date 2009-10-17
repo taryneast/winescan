@@ -1,4 +1,28 @@
 class WinesController < ApplicationController
+
+  # GET /wines/find
+  # GET /wines/find?barcode=12345
+  # GET /wines/find.xml
+  def find
+    find_params = fetch_finder_params
+    if find_params.present?
+      # start with just the barcode search!
+      if find_params.has_key?(:barcode)
+        @wines = Wine.all(:conditions => ["barcode LIKE ?", '%'+params[:barcode]+'%'])
+      end
+    end
+    # we've found a unique match!
+    @wine = @wines[0] if @wines.present? && @wines.length == 1
+
+    respond_to do |format|
+      format.html # find.html.erb
+      format.xml  do
+        return render(:xml => @wine) if @wine.present?
+        render :xml => @wines 
+      end
+    end
+  end
+
   # GET /wines
   # GET /wines.xml
   def index
@@ -81,5 +105,18 @@ class WinesController < ApplicationController
       format.html { redirect_to(wines_url) }
       format.xml  { head :ok }
     end
+  end
+
+
+  protected ########################################################
+
+  FIND_PARAMS = [:barcode]
+  # cleanout only the essential params for our finder
+  def fetch_finder_params
+    return nil if params.blank? # trivial case
+    f_params = {}
+    FIND_PARAMS.each {|key| f_params[key] = params[key] if params.has_key?(key) && params[key].present? }
+
+    f_params
   end
 end
