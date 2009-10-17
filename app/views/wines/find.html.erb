@@ -17,6 +17,8 @@
    elsif @wines.present? -%>
    <h2>Several wines matched your search - which one is yours?</h2>
   <%= render :partial => 'index', :locals => {:wines => @wines} %>
+<% elsif @barcode.blank? -%>
+  <h2>Enter a barcode in the form above to start your search.</h2>
 <% else -%>
   <h2>No wines matched your search criteria. Please try again.</h2>
 <% end -%>
