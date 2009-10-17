@@ -40,10 +40,20 @@
 </p>
 <% end -%>
 
-
-<% if wine.suppliers.present? -%>
-  <h3>Purchaseable through these suppliers</h3>
-  <%= render :partial => 'suppliers/index', :locals => {:suppliers => wine.suppliers}  -%>
+<% # for admins to see and access stockists 
+   if @show_actions -%>
+  <h3>Suppliers stocking this wine:</h3>
+<%= render :partial => 'suppliers/index', :locals => {:suppliers => wine.suppliers} if wine.suppliers.present? -%>
+<% # for users to see a list of affiliate-purchase links
+   else -%>
+  <% if wine.listings.present? -%>
+    <h3>Purchaseable through these suppliers</h3>
+    <ul>
+      <% wine.listings.each do |listing| -%>
+        <%= content_tag :li, link_to(h(listing.supplier.name), listing.affiliate_link) -%>
+      <% end -%>
+    </ul>
+  <% end -%>
 <% end -%>
 
 </fieldset>

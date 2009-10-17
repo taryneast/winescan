@@ -3,6 +3,7 @@ class SuppliersController < ApplicationController
   # GET /suppliers.xml
   def index
     @suppliers = Supplier.all
+    @show_actions = true
 
     respond_to do |format|
       format.html # index.html.erb

@@ -45,6 +45,7 @@ class WinesController < ApplicationController
   # GET /wines/1
   # GET /wines/1.xml
   def show
+    @show_actions = true # show wine-actions eg edit/delete
     @wine = Wine.find(params[:id])
 
     respond_to do |format|
