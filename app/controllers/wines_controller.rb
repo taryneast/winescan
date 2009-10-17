@@ -5,12 +5,16 @@ class WinesController < ApplicationController
   # GET /wines/find.xml
   def find
     @show_actions = false # don't show wine-actions eg edit/delete
-    find_params = fetch_finder_params
-    if find_params.present?
-      # start with just the barcode search!
-      if find_params.has_key?(:barcode)
-        @barcode = params[:barcode]
-        @wines = Wine.all(:conditions => ["barcode LIKE ?", '%'+@barcode+'%'])
+    if params[:id]
+      @wine = Wine.find(params[:id])
+    else
+      find_params = fetch_finder_params
+      if find_params.present?
+        # start with just the barcode search!
+        if find_params.has_key?(:barcode)
+          @barcode = params[:barcode]
+          @wines = Wine.all(:conditions => ["barcode LIKE ?", '%'+@barcode+'%'])
+        end
       end
     end
     # we've found a unique match!

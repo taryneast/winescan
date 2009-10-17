@@ -9,7 +9,12 @@
 
 <% wines.each do |wine| %>
   <tr>
+    <% if @show_actions -%>
     <td><%= link_to h(wine.display_name), wine %></td>
+    <% # coming from find-page so point back at it 
+       else -%>
+    <td><%= link_to h(wine.display_name), find_wines_path(:id => wine.id) %></td>
+    <% end -%>
     <td><%=h wine.display_location %></td>
     <td><%=h wine.vintage %></td>
     <td><%=h wine.variety %></td>
