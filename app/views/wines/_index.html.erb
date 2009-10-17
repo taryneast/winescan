@@ -1,22 +1,22 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Country/Region</th>
+    <th>Location</th>
     <th>Vintage</th>
     <th>Variety</th>
-    <th>Wine type</th>
+    <%= content_tag :th, 'Actions' if @show_actions -%>
   </tr>
 
 <% wines.each do |wine| %>
   <tr>
-    <td><%=h wine.name %></td>
-    <td><%=h wine.country %>/<%=h wine.region %></td>
+    <td><%= link_to h(wine.display_name), wine %></td>
+    <td><%=h wine.display_location %></td>
     <td><%=h wine.vintage %></td>
     <td><%=h wine.variety %></td>
-    <td><%=h wine.wine_type %></td>
-    <td><%= link_to 'Show', wine %></td>
-    <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
-    <td><%= link_to 'Destroy', wine, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if @show_actions -%>
+    <td><%= link_to 'Edit', edit_wine_path(wine) %> |
+    <%= link_to 'Destroy', wine, :confirm => 'Are you sure?', :method => :delete %></td>
+<% end -%>
   </tr>
 <% end %>
 </table>

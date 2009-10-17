@@ -4,6 +4,7 @@ class WinesController < ApplicationController
   # GET /wines/find?barcode=12345
   # GET /wines/find.xml
   def find
+    @show_actions = false # don't show wine-actions eg edit/delete
     find_params = fetch_finder_params
     if find_params.present?
       # start with just the barcode search!
@@ -26,6 +27,7 @@ class WinesController < ApplicationController
   # GET /wines
   # GET /wines.xml
   def index
+    @show_actions = true # show wine-actions eg edit/delete
     @wines = Wine.all
 
     respond_to do |format|

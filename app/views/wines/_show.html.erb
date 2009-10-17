@@ -1,15 +1,13 @@
-<p>
-  <b>Barcode:</b>
-  <%=h wine.barcode %>
-</p>
+<fieldset>
+  <legend><%=h wine.barcode %></legend>
 <p>
   <b>Name:</b>
-  <%=h wine.display_name %>
+<%=h wine.display_name %>
 </p>
 
 <p>
   <b>Country/Region/Appellation:</b>
-  <%=h [wine.country, wine.region, wine.appellation].compact.join(', ') %>
+  <%=h wine.display_location %>
 </p>
 
 <p>
@@ -22,16 +20,23 @@
   <%=h wine.variety %>
 </p>
 
+<% if wine.wine_type.present? -%>
 <p>
   <b>Wine type:</b>
   <%=h wine.wine_type %>
 </p>
+<% end -%>
 
+<% if wine.description.present? -%>
 <p>
   <b>Description:</b>
   <pre><%=h wine.description %></pre>
 </p>
+<% end -%>
+<% if wine.tasting_notes.present? -%>
 <p>
   <b>Tasting Notes:</b>
   <pre><%=h wine.tasting_notes %></pre>
 </p>
+<% end -%>
+</fieldset>
