@@ -6,7 +6,8 @@ class WinesController < ApplicationController
   def find
     @show_actions = false # don't show wine-actions eg edit/delete
     if params[:id]
-      @wine = Wine.find(params[:id])
+      @wine = Wine.find_by_id(params[:id])
+      flash.now[:error] = "sorry, couldn't find that wine!" unless @wine.present?
     else
       find_params = fetch_finder_params
       if find_params.present?
