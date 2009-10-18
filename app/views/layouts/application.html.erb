@@ -9,8 +9,8 @@
 </head>
 <body>
   <div id="header">
-    <div id="logo"><%= image_tag "wine_scan.png", :alt => "grape shots", :width => 95, :height => 95 -%></div> <%= content_tag :div, content_tag(:h1,@page_title), :id => 'pagetitle' if @page_title -%>
-    <div id="nav">Navigation: <%= link_to_unless_current 'Find by Barcode!', find_wines_path -%> | <%= link_to_unless_current 'wines', wines_path -%> | <%= link_to_unless_current 'suppliers', suppliers_path -%> | <%= link_to_unless_current 'listings', listings_path -%></div>
+    <div id="logo"><%= image_tag "logo.gif", :alt => "grape shots", :width => 89, :height => 89 -%></div> <%= content_tag :div, content_tag(:h1,@page_title), :id => 'pagetitle' if @page_title -%>
+  <% if @show_actions -%><div id="nav">Navigation: <%= link_to_unless_current 'Find by Barcode!', find_wines_path -%> | <%= link_to_unless_current 'wines', wines_path -%> | <%= link_to_unless_current 'suppliers', suppliers_path -%> | <%= link_to_unless_current 'listings', listings_path -%></div><% end -%>
     <% if flash.present? -%>
     <p style="color: green"><%= flash[:notice] %></p>
     <p style="color: red"><%= flash[:error] %></p>

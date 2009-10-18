@@ -1,9 +1,15 @@
-<% @page_title = "Find your wine by barcode" -%>
+<% if @wine.present?
+     @page_title = "Found your wine: #{h @wine.display_name}"
+   else
+     @page_title = "Find your wine by barcode"
+   end
+-%>
 
 <% form_for(find_wines_path) do |f| %>
   <p>
-    <%= label :barcode, "The barcode number for your wine" %><br />
+    <%= label :barcode, "Wine Barcode" %><br />
     <%= text_field_tag :barcode, @barcode %>
+    <br />Type in the number from underneath the barcode
   </p>
   <%= f.submit 'Go find it!' %>
 <% end -%>

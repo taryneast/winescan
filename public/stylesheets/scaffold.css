@@ -65,12 +65,15 @@ a:hover { color: #B13A3C; }
 /*   big page-chunks */
 #header {
   padding: 0;
+  min-height: 2.5em;
 }
 #nav {
   padding: 5px 15px;
 }
 #logo {
   float: right;
+  padding: 3px;
+  padding-left: 5px
 }
 #pagetitle {
   float: right;
@@ -78,7 +81,11 @@ a:hover { color: #B13A3C; }
 
 #content {
   background-color: white;
+  padding-left: 5px;
 }
 #footer {
-  padding: 5px 15px;
+  padding-left: 15px;
+}
+label {
+  font-weight: bold;
 }
