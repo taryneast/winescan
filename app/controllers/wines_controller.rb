@@ -25,7 +25,7 @@ class WinesController < ApplicationController
       format.html # find.html.erb
       format.xml  do
         return render(:head => :not_found) if @wine.blank? && @wines.blank?
-        return render(:xml => @wine) if @wine.present?
+        return render(:xml => @wine.to_xml(:include => :suppliers), :location => wine_url(@wine)) if @wine.present?
         render :xml => @wines 
       end
     end

@@ -7,4 +7,10 @@ class Listing < ActiveRecord::Base
   def affiliate_link
     "http://#{self.supplier.store_url}#{self.supplier_side_wine_id}&#{self.supplier.affiliate_code}"
   end
+
+  def to_xml(options = {})
+    {:supplier => self.supplier, 
+     :puchase_link => self.affiliate_link }.to_xml
+  end
+
 end

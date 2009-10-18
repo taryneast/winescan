@@ -16,4 +16,5 @@ class Wine < ActiveRecord::Base
   def display_location
     [self.country, self.region, self.appellation].map{|n| n.present? ? n : nil}.compact.join(', ')
   end
+
 end
