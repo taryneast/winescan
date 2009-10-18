@@ -4,22 +4,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>WineScan: <%= controller.action_name %></title>
+  <title>Grape Shots<%= ": #{@page_title}" if @page_title %></title>
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
-
-  <p>Header goes here with logo</p>
-
-  <p>Navigation: <%= link_to_unless_current 'Find by Barcode!', find_wines_path -%> | <%= link_to_unless_current 'wines', wines_path -%> | <%= link_to_unless_current 'suppliers', suppliers_path -%> | <%= link_to_unless_current 'listings', listings_path -%></p>
-
-<% if flash.present? -%>
-<p style="color: green"><%= flash[:notice] %></p>
-<p style="color: red"><%= flash[:error] %></p>
-<% end -%>
-
-<%= yield %>
-
-  <p>Footer goes here with helpful links, copyright etc</p>
+  <div id="header">
+    <div id="logo"><%= image_tag "wine_scan.png", :alt => "grape shots", :width => 95, :height => 95 -%></div> <%= content_tag :div, content_tag(:h1,@page_title), :id => 'pagetitle' if @page_title -%>
+    <div id="nav">Navigation: <%= link_to_unless_current 'Find by Barcode!', find_wines_path -%> | <%= link_to_unless_current 'wines', wines_path -%> | <%= link_to_unless_current 'suppliers', suppliers_path -%> | <%= link_to_unless_current 'listings', listings_path -%></div>
+    <% if flash.present? -%>
+    <p style="color: green"><%= flash[:notice] %></p>
+    <p style="color: red"><%= flash[:error] %></p>
+    <% end -%>
+  </div>
+  <div id="content">
+    <%= yield %>
+  </div>
+  <div id="footer">
+    Follow our progress on Twitter: <a href="http://www.twitter.com/wineshots/">@wineshots</a><br />
+  &copy; Wine Scan Ltd 2009. All rights reserved.
+  </div>
 </body>
 </html>
